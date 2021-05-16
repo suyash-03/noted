@@ -113,15 +113,6 @@ class _ViewNoteState extends State<ViewNote> {
   void delete() async {
     // delete from db
     await widget.ref.delete();
-    Navigator.of(context)
-        .push(
-      MaterialPageRoute(
-        builder: (context) => NotesPage(),
-      ),
-    )
-        .then((value) {
-      print("Calling Set  State !");
-      setState(() {});
-    });
+    Navigator.pop(context);
   }
 }

@@ -67,7 +67,6 @@ class _NotesPageState extends State<NotesPage> {
         actions: <Widget>[
           FlatButton.icon(
               onPressed: (){
-
                 provider.logout(context);
             },
               icon: Icon(Icons.exit_to_app_rounded,color: Colors.white,),
@@ -95,7 +94,12 @@ class _NotesPageState extends State<NotesPage> {
                     DateTime dateTime = data['created'].toDate();
                    return InkWell(
                      onTap: (){
-                       Navigator.push(context, MaterialPageRoute(builder: (context)=> ViewNote(data, dateTime.toString(), snapshot.data.docs[index].reference)));
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=> ViewNote(data, dateTime.toString(), snapshot.data.docs[index].reference)
+                       )).then((value) {
+                         setState(() {
+
+                         });
+                       });
                      },
                      child: Container(
                        height: 80,
